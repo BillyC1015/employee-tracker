@@ -50,6 +50,27 @@ function startApp() {
   };
 
 // functions for view queries 
+function viewDepartments(){
+    connection.query("select * from department",(err,res)=>{
+        if(err) throw err;
+        console.table(res)
+        startApp()
+    })
+}
 
+function viewRoles(){
+    connection.query("select * from role",(err,res)=>{
+        if(err) throw err;
+        console.table(res)
+        startApp()
+    })
+}
 
+function viewEmployees(){
+    connection.query("select * from employee",(err,res)=>{
+        if(err) throw err;
+        console.table(res)
+        startApp()
+    })
+}
   startApp()
