@@ -73,4 +73,24 @@ function viewEmployees(){
         startApp()
     })
 }
+
+function addDepartment() {
+    inquirer.prompt([
+      {
+        name: "DeptName",
+        message: "Please enter the name of the new department?"
+      }
+    ]).then(function (answer) {
+      connection.query(
+        "INSERT INTO department SET ?", {
+        name: answer.DeptName
+      },
+        function (err, res) {
+          if (err) throw err;
+          console.log(" New Department Added!\n");
+          startApp();
+        }
+      );
+    });
+  }
   startApp()
